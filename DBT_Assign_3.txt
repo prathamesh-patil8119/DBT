@@ -1,0 +1,17 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student ID 	:	200240320075
+Center		:	kharghar
+Assignment	:	3
+
+=======================================================================
+
+1) Does ANSI recognize the data type DATE ?
+
+=> Yes, ANSI recognize the data type DATE.
+=======================================================================
+
+2) Which sub-division of SQL is used to INSERT values in table ?
+
+=> DML ( Data Manipulation Language).
+=======================================================================
+

@@ -1,0 +1,34 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student ID 	:	200240320075
+Center		:	kharghar
+Assignment	:	2
+
+=======================================================================
+
+1) Which field of the customer table is Primary Key ?
+
+=> CNUM is the Primary Key for customer table.
+========================================================================
+2) What is the 4th column of the Customer table ?
+
+=> RATING is the 4th column in Customer table.
+========================================================================
+3) What is the another word for Row and Column ?
+
+=> For Row 		: Tuple, Entity, Oppertunity.
+   For Column	: Attribute, Method.
+========================================================================
+4) Why isn't it possible to see the first five rows of a table ?
+
+=> * In RDBMS, Table is not a file every row is a file.
+   * Rows of a table is not stored sequentially.
+   * Rows of a table Scattered.
+   * When you insert into table wherever the system finds free space
+     in DataBase Hardisk it will store the row there.
+   * When you update a row if the row lengh is increasing then the 
+     entire row may be moved to some other address.
+   * Later when you select from the table you will find the entire 
+     row at some other position.(only in case of Varchar)
+   * Hence it is not possible to see first or last 'N' rows of table.
+========================================================================
+	
