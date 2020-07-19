@@ -1,0 +1,212 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student Id	:	200240320075
+Center		:	Kharghar
+Module		:	DBT
+Exercise	:	1
+===================================================================================
+
+1)	Create the table SEMP with the following Structure:
+	EMPNO		CHAR(4)
+	EMPNAME		CHAR(20)
+	BASIC		FLOAT(9,2)
+	DEPTNO		CHAR(2)
+	DEPTHEAD	CHAR(4)
+	
+=>	create table SEMP
+	(
+	EMPNO		CHAR(4),
+	EMPNAME		CHAR(20),
+	BASIC		FLOAT(9,2),
+	DEPTNO		CHAR(2),
+	DEPTHEAD	CHAR(4)
+	);
+	
+===================================================================================
+
+2)	Create the table SDEPT with the following structure :
+	DEPTNO		CHAR(2)
+	DEPTNAME	CHAR(15)
+	
+=>	create table SDEPT
+	(
+	DEPTNO		CHAR(2),
+	DEPTNAME	CHAR(15)
+	);
+	
+===================================================================================
+
+3)	Insert into the SDEPT table the following values :
+	10, Development
+	20, Training
+	
+=>	insert into sdept(deptno, deptname) values
+	(10, 'Development'),
+	(20, 'Training');
+
+===================================================================================
+
+4)	Insert into the SEMP table the following values :
+	0001, SUNIL, 6000, 10
+	0002, HIREN, 8000, 20
+	0003, ALI, 4000, 10, 0001
+	0004, GEORGE, 6000, 0002
+	
+=>	insert into semp(empno, empname, basic, deptno, depthead) values
+	(0001, 'SUNIL', 6000, 10, null),
+	(0002, 'HIREN', 8000, 20, null),
+	(0003, 'ALI', 4000, 10, 0001),
+	(0004, 'GEORGE', 6000, null, 0002);
+
+===================================================================================
+
+*	Create table S, P, J, SPJ tables as specified below and insert a few rows in each table :
+			SUPPLIER						- S 
+			(S#,Sname,Status,City)
+			PARTS							- P 
+			(P#,Pname,Color,Weight,City)	
+			PROJECTS						- J 
+			(J#,Jname,City)					
+			SUPPLIER-PARTS-PROJECT 			-SPJ
+			(S#,P#,J#,Qty)
+			
+			Sample data for S# column :- 'S1','S2','S3', etc.
+			Sample data for P# column :- 'P1','P2','P3', etc.
+			Sample data for J# column :- 'J1','J2','J3', etc.
+			Sample data for Status column :- 10, 20, 30 etc.
+			
+			Write the select queries for following :-
+
+			create table S
+			(
+			`S#`	varchar(5),
+			Sname	varchar(20),
+			Status	int(5),
+			City	varchar(10)
+			);
+-------------------------------------------------------------------------------------------
+			create table P
+			(
+			`P#`	varchar(5),
+			Pname	varchar(20),
+			Color	varchar(10),
+			Weight	int(4),
+			City	varchar(10)
+			);
+---------------------------------------------------------------------------------------------
+			create table J
+			(
+			`J#`	varchar(5),
+			Jname	varchar(20),
+			City	varchar(10)
+			);
+----------------------------------------------------------------------------------------------
+			create table SPJ
+			(
+			`S#`	varchar(5),
+			`P#`	varchar(5),
+			`J#`	varchar(5),
+			Qty		int(4)
+			);
+------------------------------------------------------------------------------------------------
+			insert into S(`S#`, Sname, status, City) values
+			('S1', 'Prathamesh', 10, 'Chopda'),
+			('S2', 'Onkar', 20, 'kolhapur'),
+			('S3', 'Vishwajit', 30, 'Kolhapur'),
+			('S4', 'Akshay', 40, 'Nanded'),
+			('S5', 'Dipesh', 50, 'Dhule');
+------------------------------------------------------------------------------------------------
+			insert into P(`P#`, Pname, Color, Weight, City) values
+			('P1', 'Knuckle', 'Silver', 400, 'Chopda'),
+			('P2', 'Tie_Rod', 'Red', 150, 'Kolhapur'),
+			('P3', 'Shaft', 'Black', 300, 'Kolhapur'),
+			('P4', 'Caliper', 'Black', 900, 'Nanded');
+------------------------------------------------------------------------------------------------
+			insert into J(`J#`, Jname, City) values
+			('J1', 'Suspension', 'Chopda'),
+			('J2', 'Steering', 'Kolhapur'),
+			('J3', 'Transmission', 'Kolhapur'),
+			('J4', 'Brakes', 'Nanded'),
+			('J5', 'Design', 'Dhule');
+------------------------------------------------------------------------------------------------
+			insert into SPJ(`S#`, `P#`, `J#`, Qty) values
+			('S1', 'P2', 'J3', 100),
+			('S2', 'P4', 'J2', 70),
+			('S3', 'P3', 'J1', 80),
+			('S4', 'P1', 'J4', 40),
+			('S1', 'P3', 'J5', 70);
+------------------------------------------------------------------------------------------------
+
+5)	Display all the data from S table ?
+
+=>	select * from s;
+
+=================================================================================================
+
+6)	Display only the S# and Sname field from S table ?
+
+=> 	select `S#`, Sname from s;
+
+=================================================================================================
+
+7)	Display the Pname and Color from P table for the City="Kolhapur" ?
+
+=>	select pname, color from p
+	where city='Kolhapur';
+	
+=================================================================================================	
+
+8)	Display all the Suppliers from Nanded ?
+
+=>	select sname from s
+	where city='Nanded';
+	
+=================================================================================================	
+	
+9)	Display all the Suppliers from Kolhapur or Chopda ?
+
+=>	select sname from s
+	where city in ('Kolhapur', 'chopda');
+	
+=================================================================================================	
+	
+10)	Display all the projects in Nanded ?
+
+=>	select pname from p
+	where city='Nanded';
+	
+=================================================================================================
+
+11)	Display all the Partnames with the weight between 150 and 400 (inclusive of both) ?
+
+=>	select pname from p 
+	where weight between 150 and 400;
+
+=================================================================================================
+
+12)	Display all the Suppliers with a status greater than or equal to 20 ?
+
+=>	select sname from s
+	where status>=20;
+
+=================================================================================================
+
+13)	Display all the suppliers except the suppliers from kolhapur ?
+
+=>	select sname from s
+	where city!='kolhapur';
+
+=================================================================================================
+
+14)	Display only the cities from where the supplier comes from ?
+
+=> select city from s;
+
+=================================================================================================
+
+15)	Assuming that the Part Weight is in Grams, Display the same in Milligrams and Kilograms ?
+
+=>	select weight/1000 as "Milligrams" , weight*1000 as "Kilograms" from p;
+	
+	select *, weight*1000 as "Kilograms", weight/1000 as "Milligrams" from p;
+	
+=================================================================================================	
