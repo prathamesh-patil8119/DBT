@@ -1,0 +1,91 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student ID 	:	200240320075
+Center		:	kharghar
+Exercise	:	4
+
+=====================================================================================================
+
+1)	Display the minimum Status in the Supplier table ?
+
+=>	select *,min(status) from s;
+
+=====================================================================================================
+
+2)	Display the maximum Weight in the parts table ?
+
+=>	select *, max(weight) from p;
+
+=====================================================================================================
+
+3)	Display the average Weight of the Parts ?
+
+=>	select *, avg(weight) from p;
+
+=====================================================================================================
+
+4)	Display the total Quantity sold for part 'P1' ?
+
+=>	select spj.`p#`,sum(Qty) as "Qty" from spj,p
+	where p.`p#` = spj.`p#`
+	group by spj.`p#`
+	having spj.`p#`='p1';
+	 
+
+=====================================================================================================
+
+5)	Display the total Quqntity sold for each part ?
+
+=>	select spj.`p#`,sum(Qty) as "Qty" from spj,p
+	where p.`p#` = spj.`p#`
+	group by spj.`p#`;
+
+=====================================================================================================
+
+6)	Display the average Quantity sold for each part ?
+
+=>	select spj.`p#`, avg(qty) from spj,p
+	where p.`p#` = spj.`p#`
+	group by spj.`p#`;
+	
+=====================================================================================================
+
+7)	Display the maximum Quantity sold for each part, provided the maximum Quqntity is greater than 50 ?
+
+=>	select spj.`p#`, max(qty) from p,spj
+	where p.`p#` = spj.`p#`
+	group by spj.`p#`
+	having max(qty) > 50;
+
+=====================================================================================================
+
+8)	Display the Status and the count of Suppliers with the Status ?
+
+=>	select status,count(status) from s
+	group by status;
+
+=====================================================================================================
+
+9)	Display the count of Projects going on it different cities ?
+
+=>	select city,count(`p#`) from p
+	group by city;
+
+=====================================================================================================
+
+10)	What is the difference between COUNT(Status) and COUNT(*) ?
+
+=>	COUNT(Status) returns the number of rows where status is NOT NULL while
+	COUNT(*) returns the total number of rows present in that table.
+
+=====================================================================================================
+
+11)	Display the status and the count of suppliers with that Status in the following format
+	Status		Count
+	------		-----
+	Ten			1
+	Twenty		2
+	Thirty		3
+	
+=>	
+
+=====================================================================================================
