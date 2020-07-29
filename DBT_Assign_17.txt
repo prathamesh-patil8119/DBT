@@ -1,0 +1,43 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student ID 	:	200240320075
+Center		:	kharghar
+Assignment	:	17
+
+==========================================================================================================
+
+1)	Create the Orders table so that all onum values as well as all combinations of cnum and snum are different from one another, and so that NULL values are excluded from the date field.  
+
+=>	create table orders
+	(
+	onum int(4) unique,
+	cnum int(4),
+	snum int(4),
+	odate date not null,
+	primary key(cnum,snum)
+	);
+
+==========================================================================================================
+
+2)	Create the Salespeople table so that the default commission is 10% with no NULLS permitted, snum is the primary key, and all names fall alphabetically between A and M, inclusive (assume all names will be uppercase) 
+
+=>	create table salespeople
+	(
+	comm	float(4,2) default 0.10 not null,
+	snum 	int(4) primary key,
+	sname	varchar(20)	check (sname=upper(sname) between 'A%' and 'G%')
+	);
+
+==========================================================================================================
+
+3)	Create the Orders table, making sure that the onum is greater than the cnum, and the cnum is greater that the snum. Allow no NULLS in any of these three fields.
+
+=>	create table orders
+	(
+	onum	int(4) not null,
+	cnum	int(4) not null,
+	snum	int(4) not null,
+	check(onum > cnum > snum)
+	);
+
+==========================================================================================================
+ 
