@@ -1,0 +1,32 @@
+Name		:	Prathamesh Dnyaneshwar Patil
+Student ID 	:	200240320075
+Center		:	kharghar
+Assignment	:	21
+
+==========================================================================================================
+
+1) Give Amit the right to change the ratings of the customers.
+
+=>	grant update on customers to Amit;
+
+==========================================================================================================
+
+2) Give Manoj the right to give other users the right to query the Orders table.  
+
+=>	grant select on manoj.orders to prathamesh;
+
+==========================================================================================================
+
+3) Take the INSERT privilege on Salespeople away from Ajita.  
+
+=>	revoke insert on salespeople from Ajita;
+
+==========================================================================================================
+
+4) Grant Abhijeet the right to insert or update the Customers table while keeping her possible rating values in the range of 100 to 500.
+
+=>	grant insert,update on customers to Abhijeet
+	where rating between 100 and 500;
+
+==========================================================================================================  
+5) Allow Vikram to query the Customers table, but restrict his access to those customers whose rating is the lowest. 
